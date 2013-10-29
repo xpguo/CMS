@@ -5,7 +5,7 @@ class Attachment {
     String name
     String address
     String type
-    File file
+    Byte[] file
     static constraints = {
     }
 }

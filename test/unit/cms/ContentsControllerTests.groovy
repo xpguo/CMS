@@ -5,14 +5,19 @@ package cms
 import org.junit.*
 import grails.test.mixin.*
 
+/**
+ * ContentsControllerTests
+ * A unit test class is used to test individual methods or blocks of code without considering the surrounding infrastructure
+ */
 @TestFor(ContentsController)
 @Mock(Contents)
 class ContentsControllerTests {
 
+
     def populateValidParams(params) {
-        assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+      assert params != null
+      // TODO: Populate valid properties like...
+      //params["name"] = 'someValidName'
     }
 
     void testIndex() {
@@ -29,9 +34,9 @@ class ContentsControllerTests {
     }
 
     void testCreate() {
-        def model = controller.create()
+       def model = controller.create()
 
-        assert model.contentsInstance != null
+       assert model.contentsInstance != null
     }
 
     void testSave() {
@@ -56,6 +61,7 @@ class ContentsControllerTests {
         assert flash.message != null
         assert response.redirectedUrl == '/contents/list'
 
+
         populateValidParams(params)
         def contents = new Contents(params)
 
@@ -73,6 +79,7 @@ class ContentsControllerTests {
 
         assert flash.message != null
         assert response.redirectedUrl == '/contents/list'
+
 
         populateValidParams(params)
         def contents = new Contents(params)
@@ -93,6 +100,7 @@ class ContentsControllerTests {
         assert response.redirectedUrl == '/contents/list'
 
         response.reset()
+
 
         populateValidParams(params)
         def contents = new Contents(params)

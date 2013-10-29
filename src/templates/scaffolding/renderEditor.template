@@ -63,6 +63,8 @@
 				sb << ' valueMessagePrefix="' << "${domainClass.propertyName}.${property.name}" << '"'
 				sb << renderNoSelection(property)
 				sb << '/>'
+ 			    sb << '<a href="<g:createLink '
+ 			    sb << 'controller="'<<property.type.name.substring(property.type.name.lastIndexOf(".") + 1).toLowerCase() << '" action="create" />"<img src="${resource(dir: "images/icons", file: "add.png", plugin: "famfamfam")}"/></a>'
 			} else {
 				if (cp.password) {
 					sb << '<g:field type="password"'
@@ -92,7 +94,6 @@
     private renderManyToOne(domainClass,property) {
         if (property.association) {
 			def sb = new StringBuilder()
-			sb << '<ul></ul>
             sb << '<g:select'
 			// id is "x" and name is "x.id" as the label will have for="x" and "." in an id will confuse CSS
  			sb << ' id="' << property.name << '"'
@@ -104,6 +105,8 @@
  			sb << ' class="many-to-one"'
  			sb << renderNoSelection(property)
  			sb << '/>'
+ 			sb << '<a href="<g:createLink '
+ 			sb << 'controller="'<<property.type.name.substring(property.type.name.lastIndexOf(".") + 1).toLowerCase() << '" action="create" />"><img src="${resource(dir: "images/icons", file: "add.png", plugin: "famfamfam")}"/></a>'
 			sb as String
         }
     }
@@ -127,6 +130,8 @@
             sb << ' value="${' << "${domainInstance}?.${property.name}" << '*.id}"'
             sb << ' class="many-to-many"'
             sb << '/>'
+ 			sb << '<a href="<g:createLink '
+ 			sb << 'controller="'<<property.type.name.substring(property.type.name.lastIndexOf(".") + 1).toLowerCase() << '" action="create" />"><img src="${resource(dir: "images/icons", file: "add.png", plugin: "famfamfam")}"/></a>'
             sb as String
 
         }

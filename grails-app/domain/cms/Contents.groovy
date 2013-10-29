@@ -18,7 +18,7 @@ class Contents extends BrowseAble implements Taggable{
     Date publicDate  //发布日期
     List<Attachment> attachments //附件
     String unverify  //未通过原因
-    File logo  //图标
+    Byte[] logo  //图标
     Focus focus //焦点信息
     Long newColumn  //新栏目
     static constraints = {
